@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
@@ -113,7 +113,7 @@ export default function Login() {
                 </tr>
                 <tr>
                   <td colSpan="2" style={{ textAlign: "center" }}>
-                    Don't have an account? <a href="/register"><b>Register</b></a>
+                    Don't have an account? <Link to="/register" className='btn btn-outline-light m-2' id="loginBtn">Login</Link>
                   </td>
                 </tr>
               </tbody>
