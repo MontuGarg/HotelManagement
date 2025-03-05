@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "name": "Sahil Singla",
+      "email": "sahil@gmail.com",
+      "phone": "9865674546",
+      "proof": "Driving License",
+      "service": "Cleaner",
+      "salary": "15000",
+      "password": "1234",
+      "id": 34
+    },
+    {
+      "name": "Punit Jindal",
+      "email": "punit@gmail.com",
+      "phone": "9898756565",
+      "proof": "Driving License",
+      "service": "Cleaner",
+      "salary": "15000",
+      "password": "1234",
+      "id": 35
+    },
+    {
+      "name": "kapil garg",
+      "email": "kapil@gmail.com",
+      "phone": "9234567789",
+      "proof": "Aadhaar",
+      "service": "Cleaner",
+      "salary": "10000",
+      "password": "123456",
+      "id": 36
+    },
+    {
+      "name": "nishant verma",
+      "email": "nishant@gmail.com",
+      "phone": "9885656566",
+      "proof": "Pan Card",
+      "service": "Manager",
+      "salary": "75000",
+      "password": "1234",
+      "id": 37
+    }
+  ],
+  "customer": [
+    {
+      "name": "tyagi",
+      "username": "",
+      "email": "",
+      "password": "",
+      "phone": "565656565",
+      "proof": "Driving License",
+      "member": "5",
+      "address": "Uttar pradesh",
+      "room": "103",
+      "check": "2022-10-18",
+      "id": 4,
+      "image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
+      "checkO": "2022-10-19"
+    },
+    {
+      "name": "sahil singla",
+      "username": "",
+      "email": "",
+      "password": "",
+      "phone": "9865656554",
+      "proof": "Aadhaar",
+      "member": "2",
+      "address": "Bathinda",
+      "room": "104",
+      "check": "2022-10-18",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzDIdIEoKmi101JPpAOEpsDz65yTL315CgWly8LwDI&s",
+      "id": 5,
+      "checkO": "2022-10-20"
+    },
+    {
+      "name": "john",
+      "username": "",
+      "email": "",
+      "password": "",
+      "phone": "9411093745",
+      "proof": "Aadhaar",
+      "member": "1",
+      "address": "rajpura",
+      "room": "531",
+      "check": "2022-10-27",
+      "checkO": "2022-10-28",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzDIdIEoKmi101JPpAOEpsDz65yTL315CgWly8LwDI&s",
+      "id": 6
+    }
+  ]
+}
