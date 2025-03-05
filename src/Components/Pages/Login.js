@@ -71,7 +71,7 @@ export default function Login() {
             <h1>
               <img
                 alt="logo"
-                src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg"
+                src={require("../../images/s2.jpg")}
                 style={{ width: "30%", borderRadius: "50%" }}
               />
             </h1>
@@ -113,7 +113,7 @@ export default function Login() {
                 </tr>
                 <tr>
                   <td colSpan="2" style={{ textAlign: "center" }}>
-                    Don't have an account? <Link to="/register" className='btn btn-outline-light m-2' id="loginBtn">Login</Link>
+                    Don't have an account? <Link to="/register" className='btn btn-outline-light m-2' id="registerBtn">Register</Link>
                   </td>
                 </tr>
               </tbody>

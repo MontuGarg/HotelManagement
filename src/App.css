@@ -60,7 +60,10 @@
     margin-left: -10%;
 }
 
-
+#registerBtn{
+    text-decoration: none;
+    color: rgb(18, 18, 18);
+}
 #aboutTxt{
     
     padding: 5px;
