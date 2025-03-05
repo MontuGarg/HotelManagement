@@ -1,84 +1,108 @@
-import React from 'react'
-import { useState,useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Link,useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 export default function Employee() {
-  let navigate=useNavigate();
-  const [users,setUser]= useState([]);
-  useEffect(()=>{
+  const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+
+  // Load Users on Component Mount
+  useEffect(() => {
     loadUsers();
-  },[]);
-  const loadUsers=async ()=>{
-    const result=await axios.get("http://localhost:4000/users");
-    setUser(result.data);
-  }
-  const DeleteUser=async id=>{
-     await axios.delete(`http://localhost:4000/users/${id}`);
-     loadUsers();
-  }
-  const onSubmit=()=>{
-    let flag=1;
-    let name=document.getElementById("Search").value ;
-    users.map((users,index)=>{
-        if(users.name===name||users.email===name){
-          navigate(`/User/${users.id}`);
-          flag=2;
-        }else{
-          if(flag===2){
-            flag=2;
-          }
-          else{
-            flag=1;
-          }
-        }
-    })
-    if(flag===1){
-      alert("Employee named "+name+" Not Found.");
+  }, []);
+
+  const loadUsers = async () => {
+    try {
+      const result = await axios.get("http://localhost:4000/users");
+      setUsers(result.data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
     }
-  }
+  };
+
+  const deleteUser = async (id) => {
+    try {
+      await axios.delete(`http://localhost:4000/users/${id}`);
+      loadUsers(); // Reload users after delete
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
+
+  const onSubmit = () => {
+    let name = document.getElementById("Search").value.trim();
+
+    // ✅ Use `find()` to locate the user instead of `map()`
+    const foundUser = users.find((user) => user.name === name || user.email === name);
+
+    if (foundUser) {
+      navigate(`/User/${foundUser.id}`);
+    } else {
+      alert(`Employee named "${name}" Not Found.`);
+    }
+  };
+
   return (
-    <div id="HomeDiv" >
-      
-      <input type={"text"} name='search' id="Search" placeholder='Search' ></input>
-      <button className='btn btn-success' onClick={e=>onSubmit(e)}>Search</button>
-      <h1 style={{textAlign:"center",color:"white",textShadow:"5px 5px 5px black"}}>Employee Data</h1>
-      <table class="table table-sm table-dark text-center mt-5">
-        
-          <thead class="table-dark">
+    <div id="HomeDiv" style={{ padding: "20px" }}>
+      <div style={{ textAlign: "center", marginBottom: "20px" }}>
+        <input type="text" id="Search" placeholder="Search" className="form-control d-inline-block w-25" />
+        <button className="btn btn-success ml-2" onClick={onSubmit}>
+          Search
+        </button>
+      </div>
+
+      <h1 className="text-center text-white text-shadow">Employee Data</h1>
+
+      <table className="table table-sm table-dark text-center mt-5">
+        <thead className="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile No.</th>
+            <th>Id Proof</th>
+            <th>Service</th>
+            <th>Salary</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.length > 0 ? (
+            users.map((user, index) => (
+              <tr key={user.id}> {/* ✅ Fixed missing `key` prop */}
+                <th>{index + 1}</th>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.phone}</td>
+                <td>{user.proof}</td>
+                <td>{user.service}</td>
+                <td>{user.salary}</td>
+                <td>
+                  <Link to={`/User/${user.id}`} className="btn btn-primary mx-1">
+                    View
+                  </Link>
+                  <Link to={`/EditUser/${user.id}`} className="btn btn-success mx-1">
+                    Edit
+                  </Link>
+                  <button onClick={() => deleteUser(user.id)} className="btn btn-danger mx-1">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
             <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Mobile No.</th>
-              <th>Id Proof </th>
-              <th>Service</th>
-              <th>Salary</th>
-              <th>Action</th>
+              <td colSpan="8" className="text-center">
+                No Employees Found
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {
-              users.map((user,index)=>(
-                <tr>
-                  <th>{index+1}</th>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.phone}</td>
-                  <td>{user.proof}</td>
-                  <td>{user.service}</td>
-                  <td>{user.salary}</td>
-                  
-                  <td>
-                    <Link to={`/User/${user.id}`}><button className='btn btn-primary'>View</button></Link>
-                    <Link to={`/EditUser/${user.id}`}><button className='btn btn-success'>Edit</button></Link>
-                    <Link onClick={()=>DeleteUser(user.id)}><button className='btn btn-danger'>Delete</button></Link>
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
+          )}
+        </tbody>
       </table>
-      <Link to="/register" className='btn btn-success' style={{marginLeft:"91%"}}>Add Employee</Link>
+
+      <Link to="/register" className="btn btn-success float-right">
+        Add Employee
+      </Link>
     </div>
-  )
+  );
 }

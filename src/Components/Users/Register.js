@@ -14,7 +14,7 @@ export default function Register() {
         password:""
 
     })
-    const {name,email,password,phone,proof,salary,Manager,Chef,Cleaner,Security,Aadhaar,PanCard,Driving}=user;
+    const {name,email,password,phone,salary,Manager,Chef,Cleaner,Security,Aadhaar,PanCard,Driving}=user;
     const onValChange= e=>{
         setUser({...user,[e.target.name]:e.target.value});
     }

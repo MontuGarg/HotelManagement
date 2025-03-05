@@ -19,7 +19,7 @@ export default function Navbar() {
                     <li>
                         <div onClick={e=>myfun(e)}>
                             <header className="App-header" id={"logo2"}>
-                                <img src="https://3.imimg.com/data3/SU/NW/MY-11112841/pallavi_logo-500x500.png"  id="img1"width={"100px"}/>
+                                <img alt='logo' src="https://3.imimg.com/data3/SU/NW/MY-11112841/pallavi_logo-500x500.png"  id="img1"width={"100px"}/>
                             </header>
                         </div>
                     </li>

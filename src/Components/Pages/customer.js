@@ -44,7 +44,7 @@ export default function Customer() {
               users.map((user,index)=>(
                 <tr>
                   <th>{index+1}</th>
-                  <th><img src={user.image} style={{width:"30px" ,height:"25px",borderRadius:"50%"}}></img></th>
+                  <th><img src={user.image} alt='logo' style={{width:"30px" ,height:"25px",borderRadius:"50%"}}></img></th>
                   <td>{user.name}</td>
                   <td>{user.phone}</td>
                   <td>{user.proof}</td>
