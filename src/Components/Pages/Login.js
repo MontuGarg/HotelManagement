@@ -66,7 +66,7 @@ export default function Login() {
           alignItems: "center",
         }}
       >
-        <div id="LoginDiv" style={{ padding: "20px", background: "rgba(255,255,255,0.9)", borderRadius: "10px",width:"40vw",height:"80vh" }}>
+        <div id="LoginDiv" style={{ padding: "20px", background: "rgba(255,255,255,0.9)", borderRadius: "10px",width:"27vw",height:"50vh" }}>
           <form id="form" onSubmit={handleLogin}>
             <h1>
               <img
