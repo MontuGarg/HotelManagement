@@ -66,13 +66,13 @@ export default function Login() {
           alignItems: "center",
         }}
       >
-        <div id="LoginDiv" style={{ padding: "20px", background: "rgba(255,255,255,0.9)", borderRadius: "10px" }}>
+        <div id="LoginDiv" style={{ padding: "20px", background: "rgba(255,255,255,0.9)", borderRadius: "10px",width:"40vw",height:"80vh" }}>
           <form id="form" onSubmit={handleLogin}>
             <h1>
               <img
                 alt="logo"
                 src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg"
-                style={{ width: "30%", borderRadius: "50%" }}
+                style={{ width: "20%", borderRadius: "50%" }}
               />
             </h1>
 
