@@ -57,7 +57,7 @@ export default function Login() {
       <div
         style={{
           backgroundImage:
-            "url('https://cdn-japantimes.com/wp-content/uploads/2022/01/np_file_133609.jpeg')",
+            "url('https://media.gq.com/photos/591b12479fe30f3d4ab0879e/master/pass/best-hotel-bars-nomad.jpg')",
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           minHeight: "100vh",
@@ -71,7 +71,7 @@ export default function Login() {
             <h1>
               <img
                 alt="logo"
-                src={require("../../images/s2.jpg")}
+                src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg"
                 style={{ width: "30%", borderRadius: "50%" }}
               />
             </h1>
